@@ -1,19 +1,18 @@
 <div id="component">
-		<div id="pagetitle">
-			<span> {{ pagetitle }} </span>
+	<div id="pagetitle">
+		<span> {{ pagetitle }} </span>
 		</div>
-		<div id="content">
-			<table class="table table-sm" *ngIf="product">
+		<div id="content" *ngIf="product">
+		<table class="table table-sm" >
 		<tr><td>ID</td><td>{{product.ID}}</td></tr>
-		<tr><td>VendorID</td><td>{{product.VendorID}}</td></tr>
+		<tr><td>Vendor Name</td><td>{{product.Vendor.Name}}</td></tr>
 		<tr><td>PartNumber</td><td>{{product.PartNumber}}</td></tr>
 		<tr><td>Name</td><td>{{product.Name}}</td></tr>
-		<tr><td>Price</td><td>{{product.Price}}</td></tr>
+		<tr><td>Price</td><td>{{product.Price  | currency}}</td></tr>
 		<tr><td>Unit</td><td>{{product.Unit}}</td></tr>
-		<tr><td>Photopath</td><td>{{product.Photopath}}</td></tr>
-		<tr><td>Active</td><td>{{product.Active}}</td></tr>
 		</table>
-		<a routerLink="/products/edit/{{product.ID}}" class="btn btn-warning">Edit</a> 
-		<button (click)="remove()" class= "btn btn-danger">Delete</button>
-	</div>
+		<a routerLink="/products/edit/{{product.ID}}" class="btn btn-warning">Edit</a> | 
+    <button (click)="verify()" class="btn btn-danger">Delete</button> |
+    <button [hidden]="isHidden" (click)="remove()" class="btn btn-danger">Verify Delete</button>
+  </div>
 </div>

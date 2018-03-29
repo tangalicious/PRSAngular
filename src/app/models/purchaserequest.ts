@@ -1,27 +1,28 @@
+import { User } from './user';
+
 export class PurchaseRequest {
 	ID: number;
-	UserID: string;
+	UserID: number;
 	Description: string;
 	Justification: string;
-	DeliveryMode: number; 
-	StatusID: string;
-	Total: string; 
+	DeliveryMode: string; 
+	Status: string;
+	Total: number; 
 	Active: boolean;
 	ReasonForRejection: string;
-	DateCreated: Date;
+	
 
 constructor(
 	ID: number,
-	UserID: string,
+	UserID: number,
 	Description: string,
 	Justification: string,
-	DeliveryMode: number,
-	StatusID: string,
-	Total: string, 
+	DeliveryMode: string,
+	Status: string,
+	Total: number, 
 	Active: boolean,
 	ReasonForRejection: string,
-	DateCreated: Date,
-		
+	
 	)
 	{
 	this.ID = ID;
@@ -29,11 +30,9 @@ constructor(
 	this.Description = Description;
 	this.Justification = Justification;
 	this.DeliveryMode = DeliveryMode;
-	this.StatusID = StatusID;
+	this.Status = Status;
 	this.Total = Total;
 	this.Active =  Active;
 	this.ReasonForRejection = ReasonForRejection;
-	this.DateCreated = DateCreated;
-
 	}
 }

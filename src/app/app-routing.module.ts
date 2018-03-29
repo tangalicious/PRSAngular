@@ -15,24 +15,31 @@ import { HelpComponent } from './support/help/help.component';
 import { VendorService} from './services/vendor.service';
 import { Vendor } from './models/vendor';
 
-
 import { VendorListComponent } from './vendor/vendor-list/vendor-list.component';
 import { VendorDetailComponent } from './vendor/vendor-detail/vendor-detail.component';
 import { VendorCreateComponent } from './vendor/vendor-create/vendor-create.component';
 import { VendorEditComponent } from './vendor/vendor-edit/vendor-edit.component';
-
-
 
 import { ProductListComponent } from './product/product-list/product-list.component';
 import { ProductEditComponent } from './product/product-edit/product-edit.component';
 import { ProductDetailComponent } from './product/product-detail/product-detail.component';
 import { ProductCreateComponent } from './product/product-create/product-create.component';
 
+import { PurchaseRequestListComponent } from './purchaserequest/purchaserequest-list/purchaserequest-list.component';
+import { PurchaseRequestDetailComponent } from './purchaserequest/purchaserequest-detail/purchaserequest-detail.component';
+import { PurchaseRequestCreateComponent } from './purchaserequest/purchaserequest-create/purchaserequest-create.component';
+import { PurchaseRequestEditComponent } from './purchaserequest/purchaserequest-edit/purchaserequest-edit.component';
+
+import { PrliListComponent } from './prli/prli-list/prli-list.component';
+import { PrliDetailComponent } from './prli/prli-detail/prli-detail.component';
+import { PrliEditComponent } from './prli/prli-edit/prli-edit.component';
+import { PrliCreateComponent } from './prli/prli-create/prli-create.component';
+
 const routes: Routes = [
 {path: "", redirectTo: "/home", pathMatch: "full"}, 
 { path: "users/detail/:id", component: UserDetailComponent},
 { path: "users/edit/:id", component: UserEditComponent},
-{ path: "users/list", component: UserListComponent},
+{ path: "users/list", component: UserListComponent}, 
 { path: "users/create", component: UserCreateComponent},
 
 { path: "vendors/detail/:id", component: VendorDetailComponent},
@@ -44,6 +51,16 @@ const routes: Routes = [
 { path: "products/edit/:id", component: ProductEditComponent},
 { path: "products/list", component: ProductListComponent},
 { path: "products/create", component: ProductCreateComponent},
+
+{ path: "purchaserequests/detail/:id", component: PurchaseRequestDetailComponent},
+{ path: "purchaserequests/edit/:id", component: PurchaseRequestEditComponent},
+{ path: "purchaserequests/list", component: PurchaseRequestListComponent},
+{ path: "purchaserequests/create", component: PurchaseRequestCreateComponent},
+
+{ path: "prlis/detail/:id", component: PrliDetailComponent},
+{ path: "prlis/edit/:id", component: PrliEditComponent}, 
+{ path: "prlis/list", component: PrliListComponent},
+{ path: "prlis/create", component: PrliCreateComponent},
 
 { path: "contactus", component: ContactusComponent }, 
 { path: "help", component: HelpComponent }, 

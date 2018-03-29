@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProductService } from '../../services/product.service';
 import { Product } from '../../models/product';
+import { Vendor } from '../../models/vendor';
+import { VendorService } from '../../services/vendor.service';
 
 @Component({
   selector: 'app-product-detail',
@@ -9,8 +11,10 @@ import { Product } from '../../models/product';
   styleUrls: ['./product-detail.component.css']
 })
 export class ProductDetailComponent implements OnInit {
-pagetitle: string = 'Product Edit';
+pagetitle: string = 'Product Detail';
 product: Product;
+vendors: Vendor[];
+isHidden: boolean = true;
 
   constructor(  	
   	private ProductSvc: ProductService,
@@ -18,15 +22,19 @@ product: Product;
     private router: Router
     ) { }
 
-  change(): void {
-    this.ProductSvc.Change(this.product)
+  verify():void {
+    this.isHidden = false;
+  }
+
+  remove(): void {
+    this.ProductSvc.Remove(this.product)
     .subscribe(res => {
       console.log(res);
       this.router.navigateByUrl("/products/list");
     });
 }
  
-  getVendorById(id) {
+  getProductById(id) {
   	this.ProductSvc.Get(id)
   	.subscribe(product => {
   		this.product = product;
@@ -37,7 +45,7 @@ product: Product;
   	this.route.params
   	.subscribe(parms => 
   		{let id = parms["id"];
-  			this.getVendorById(id);
+  			this.getProductById(id);
   }
 )};
 }

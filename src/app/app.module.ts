@@ -10,6 +10,8 @@ import { MenuItemComponent} from './support/menu/menu-item.component';
 import { UserService } from './services/user.service';
 import { VendorService } from './services/vendor.service';
 import { ProductService } from './services/product.service';
+import { PurchaseRequestService } from './services/purchaserequest.service';
+import { PRLIService } from './services/PRLI.service';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './support/home/home.component';
@@ -32,6 +34,17 @@ import { ProductEditComponent } from './product/product-edit/product-edit.compon
 import { ProductDetailComponent } from './product/product-detail/product-detail.component';
 import { ProductCreateComponent } from './product/product-create/product-create.component';
 
+import { PurchaseRequestListComponent } from './purchaserequest/purchaserequest-list/purchaserequest-list.component';
+import { PurchaseRequestDetailComponent } from './purchaserequest/purchaserequest-detail/purchaserequest-detail.component';
+import { PurchaseRequestCreateComponent } from './purchaserequest/purchaserequest-create/purchaserequest-create.component';
+import { PurchaseRequestEditComponent } from './purchaserequest/purchaserequest-edit/purchaserequest-edit.component';
+//import { UserLoginComponent } from './user/user-login/user-login.component';
+
+import { PrliListComponent } from './prli/prli-list/prli-list.component';
+import { PrliDetailComponent } from './prli/prli-detail/prli-detail.component';
+import { PrliEditComponent } from './prli/prli-edit/prli-edit.component';
+import { PrliCreateComponent } from './prli/prli-create/prli-create.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -53,6 +66,15 @@ import { ProductCreateComponent } from './product/product-create/product-create.
      ProductEditComponent,
      ProductDetailComponent,
      ProductCreateComponent,
+     PurchaseRequestListComponent,
+     PurchaseRequestDetailComponent,
+     PurchaseRequestCreateComponent,
+     PurchaseRequestEditComponent,
+     //UserLoginComponent,
+     PrliListComponent,
+     PrliDetailComponent,
+     PrliEditComponent,
+     PrliCreateComponent,
       ],
   imports: [
     BrowserModule,
@@ -63,8 +85,10 @@ import { ProductCreateComponent } from './product/product-create/product-create.
   providers: [
   UserService,
   VendorService,
-  ProductService
-  ],
+  ProductService,
+  PurchaseRequestService,
+  PRLIService,
+    ],
   bootstrap: [
   AppComponent
   ]

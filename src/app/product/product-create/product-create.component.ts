@@ -15,8 +15,8 @@ import { Vendor } from '../../models/vendor';
 export class ProductCreateComponent implements OnInit {
 
 pagetitle: string = 'Product Create';
-product: Product = new Product (0, 0, "", "", 0, "Each", "", true);
-vendor: Vendor[];
+product: Product = new Product (0, 0, "", "", 10, "Each", "", true);
+vendors: Vendor[];
 
   constructor(       
     private ProductSvc: ProductService,
@@ -28,7 +28,7 @@ vendor: Vendor[];
 compareFn(v1: number, v2: number): boolean {return v1 === v2;}
 
 create(): void {
-    this.ProductSvc.Change(this.product)
+    this.ProductSvc.Create(this.product)
     .subscribe(res => {
       console.log(res);
       this.router.navigateByUrl("/products/list");
@@ -37,9 +37,9 @@ create(): void {
 
 ngOnInit() {
   this.VendorSvc.List()
-  .subscribe(vendor => {
-      this.vendor = vendor;
-      console.log("Vendor:", this.vendor);
+  .subscribe(vendors => {
+      this.vendors = vendors;
+      console.log("Vendors:", this.vendors);
     });
 }
 }

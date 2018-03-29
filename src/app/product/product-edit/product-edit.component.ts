@@ -16,7 +16,7 @@ export class ProductEditComponent implements OnInit {
 
 pagetitle: string = 'Product Change';
 product: Product;
-vendor: Vendor[];
+vendors: Vendor[];
 
   constructor( 	  	
   	private ProductSvc: ProductService,
@@ -33,8 +33,8 @@ change(): void {
       this.router.navigateByUrl("/products/list");
     });
 }
-getProductById(ID) {
-    this.ProductSvc.Get(ID)
+getProductById(id) {
+    this.ProductSvc.Get(id)
     .subscribe(product => {
       this.product = product;
       console.log("Product:", product);
@@ -43,16 +43,16 @@ getProductById(ID) {
 
 ngOnInit() {
   this.VendorSvc.List()
-  .subscribe(vendor => {
-  		this.vendor = vendor;
-  		console.log("Vendor:", vendor);
+  .subscribe(vendors => {
+  		this.vendors = vendors;
+  		console.log("Vendor:", vendors);
   	});
   
   
   	this.route.params
   	.subscribe(parms => 
-  		{let ID = parms["ID"];
-  			this.getProductById(ID);
+  		{let id = parms["id"];
+  			this.getProductById(id);
   });
 }
 }

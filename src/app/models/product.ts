@@ -9,7 +9,8 @@ export class Product {
 	Unit: string;
 	Photopath: string; 
 	Active: boolean;
-	
+	//
+
 constructor(
 	ID: number,
 	VendorID: number,
@@ -19,6 +20,7 @@ constructor(
 	Unit: string,
 	Photopath: string,
 	Active: boolean,
+	//
 	)
 	{
 	this.ID = ID;
@@ -29,5 +31,6 @@ constructor(
 	this.Unit = Unit;
 	this.Photopath = Photopath;
 	this.Active =  Active;
+	//
 	}
 }

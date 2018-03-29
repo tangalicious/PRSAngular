@@ -1,0 +1,46 @@
+<div id="component">
+  <div id="pagetitle">
+    <span>{{ pagetitle }}</span>
+  </div>
+    <div id="content" *ngIf="purchaserequest">
+        <div class="form-group row">
+          <label class='col-form-label col-sm-2' for="prDescription">Description:</label>
+          <input [(ngModel)]='purchaserequest.Description' name='Description' type="text" class="form-control col-sm-6" id="prDescription" aria-describedby="DescHelp" placeholder="Description">
+          <small id="DescHelp" class="form-text text-muted col-sm-2">The Description</small>
+        </div> 
+
+        <div class="form-group row">
+          <label class='col-form-label col-sm-2' for="purchaserequestJustification">Justification</label>
+          <input [(ngModel)]='purchaserequest.Justification' name='Justification' type="text" class="form-control col-sm-6" id="purchaserequestJustification" aria-describedby="justhelp" placeholder="Justification">
+          <small id="justhelp" class="form-text text-muted col-sm-2">Justification</small>
+        </div>    
+  
+        <div class="form-group row">
+          <label class='col-form-label col-sm-2' for="prDeliveryMode">DeliveryMode:</label>
+          <input [(ngModel)]='purchaserequest.DeliveryMode' name='DeliveryMode' type="text" class="form-control col-sm-6" id="prDeliveryMode" aria-describedby="DeliveryModeHelp" placeholder="DeliveryMode">
+          <small id="DeliveryModeHelp" class="form-text text-muted col-sm-2">The DeliveryMode</small>
+        </div> 
+        <div class="form-group row">
+          <label class='col-form-label col-sm-2' for="StatusID">StatusID:</label>
+          <input [(ngModel)]='purchaserequest.StatusID' name='StatusID' type="text" class="form-control col-sm-6" id="StatusID" aria-describedby="StatusHelp" placeholder="StatusID">
+          <small id="StatusHelp" class="form-text text-muted col-sm-2">The StatusID</small>
+        </div> 
+       
+        <div class="form-group row">
+          <label class='col-form-label col-sm-2' for="ReasonForRejection">ReasonForRejection:</label>
+          <input [(ngModel)]='purchaserequest.ReasonForRejection' name='ReasonForRejection' type="text" class="form-control col-sm-6" id="ReasonForRejection" aria-describedby="RfRHelp" placeholder="ReasonForRejection">
+          <small id="RfRHelp" class="form-text text-muted col-sm-2">The ReasonForRejection</small>
+        </div> 
+          <div class='form-group row' >
+        <label class='col-form-label col-sm-2' for="purchaserequestuser">User:</label>
+      <div class='col-sm-6 select-list'>
+        <select [(ngModel)]='purchaserequest.UserID' [compareWith]='compareFn' class='form-control' name='User' id='purchaserequest-User'>
+          <option *ngFor="let user of users" [ngValue]="user.ID" [selected]="user.ID == purchaserequest.UserID">{{user.FirstName}} {{user.LastName}}</option>
+        </select>
+      </div>
+    </div>
+    <div>
+      <button (click)="change()" class="btn btn-warning">Change</button>
+    </div>
+  </div>
+</div>
