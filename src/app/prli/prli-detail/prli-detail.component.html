@@ -1,3 +1,19 @@
-<p>
-  prli-detail works!
-</p>
+<div id="component">
+	<div id="pagetitle">
+		<span> {{ pagetitle }} </span>
+		</div>
+		<div id="content" *ngIf="prli">
+		<table class="table table-sm" >
+		<tr><td>ID</td><td>{{prli.ID}}</td></tr>
+		<tr><td>Product Name</td><td>{{prli.Product.Name}}</td></tr>
+		<tr><td>Quantity</td><td>{{prli.Quantity}}</td></tr>
+		<tr><td>Price</td><td>{{prli.Price}}</td></tr>
+		<tr><td>Subtotal</td><td>{{prli.Price * prli.Quantity }}</td></tr>
+		</table>
+		<a routerLink="/prli/edit/{{prli.ID}}" class="btn btn-warning">Edit</a> | 
+    <button (click)="verify()" class="btn btn-danger">Delete</button> |
+    <button [hidden]="isHidden" (click)="remove()" class="btn btn-danger">Verify Delete</button>
+  </div>
+</div>
+
+	

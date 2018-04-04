@@ -1,3 +1,40 @@
-<p>
-  prli-create works!
-</p>
+<div id="component">
+  <div id="pagetitle">
+    <span>{{ pagetitle }}</span>
+  </div>
+    <div id="content" *ngIf="prli">
+	 <div class='form-group row' >
+        <label class='col-form-label col-sm-2' for="purchaserequestuser">Purchase Request:</label>
+      	<div class='col-sm-6 select-list'>
+	        <select [(ngModel)]='prli.PurchaseRequestID' [compareWith]='compareFn' class='form-control' name='PRID' id='prli-PRID'>
+	          <option *ngFor="let purchaserequest of purchaserequests" [ngValue]="purchaserequest.ID" [selected]="purchaserequest.ID == prli.PurchaseRequestID">{{PurchaseRequest.Description}}</option>
+	        </select>
+      	</div>
+    </div>
+        <div class="form-group row">
+          <label class='col-form-label col-sm-2' for="prDescription">Product.Name:</label>
+          <input [(ngModel)]='prli.Product.Name' name='Product.Name' type="text" class="form-control col-sm-6" id="prDescription" aria-describedby="DescHelp" placeholder="Product Name">
+          <small id="DescHelp" class="form-text text-muted col-sm-2">The Product</small>
+        </div> 
+
+        <div class="form-group row">
+          <label class='col-form-label col-sm-2' for="purchaserequestJustification">Quantity</label>
+          <input [(ngModel)]='prli.Quantity' name='Quantity' type="text" class="form-control col-sm-6" id="purchaserequestJustification" aria-describedby="quantityhelp" placeholder="Quantity">
+          <small id="quantityhelp" class="form-text text-muted col-sm-2">Quantity</small>
+        </div>    
+  
+        <div class="form-group row">
+          <label class='col-form-label col-sm-2' for="prDeliveryMode">Price:</label>
+          <input [(ngModel)]='prli.Price' name='Price' type="text" class="form-control col-sm-6" id="prPrice" aria-describedby="PriceHelp" placeholder="Price">
+          <small id="PriceHelp" class="form-text text-muted col-sm-2">The Price</small>
+        </div> 
+        <div class="form-group row">
+          <label class='col-form-label col-sm-2' for="Subtotal">Subtotal:</label>
+          <input [(ngModel)]='prli.Subtotal' name='Subtotal' type="text" class="form-control col-sm-6" id="Subtotal" aria-describedby="SubtotalHelp" placeholder="Subtotal">
+          <small id="SubtotalHelp" class="form-text text-muted col-sm-2">The Subtotal</small>
+        </div> 
+    <div>
+      <button (click)="create()" class="btn btn-warning">Create</button>
+    </div>
+  </div>
+</div>

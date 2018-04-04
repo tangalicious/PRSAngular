@@ -10,7 +10,6 @@ export class PurchaseRequest {
 	Total: number; 
 	Active: boolean;
 	ReasonForRejection: string;
-	
 
 constructor(
 	ID: number,
@@ -22,7 +21,6 @@ constructor(
 	Total: number, 
 	Active: boolean,
 	ReasonForRejection: string,
-	
 	)
 	{
 	this.ID = ID;

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
+import { SystemService } from './system.service';
 
 import { Product } from '../models/product';
 
@@ -9,7 +10,7 @@ const url = "http://localhost:51237/Products/";
 @Injectable()
 export class ProductService {
 	
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private sys: SystemService) {}
 
 		List(): Observable<Product[]>{
 		  	return this.http.get(url+'List') as Observable<Product[]>;

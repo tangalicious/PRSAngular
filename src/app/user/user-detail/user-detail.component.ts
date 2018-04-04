@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router} from '@angular/router';
-
 import { UserService } from '../../services/user.service';
 import { User } from '../../models/user';
-
 
 @Component({
   selector: 'app-user-detail',
@@ -11,19 +9,16 @@ import { User } from '../../models/user';
   styleUrls: ['./user-detail.component.css']
 })
 export class UserDetailComponent implements OnInit {
-  pagetitle: "User Detail"
+  pagetitle: string = "User Detail"
 	user: User;
 
   constructor(
   	private UserSvc: UserService,
-	private route: ActivatedRoute,
-  private router: Router
+	  private route: ActivatedRoute,
+    private router: Router
   	) { }
 
-
 remove(): void {
-    //this.user.DateCreated =  new Date();
-    //console.log(this.user);
     this.UserSvc.Remove(this.user)
     .subscribe(res => {
       console.log(res);

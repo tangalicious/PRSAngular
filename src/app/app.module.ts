@@ -12,6 +12,7 @@ import { VendorService } from './services/vendor.service';
 import { ProductService } from './services/product.service';
 import { PurchaseRequestService } from './services/purchaserequest.service';
 import { PRLIService } from './services/PRLI.service';
+import { SystemService } from './services/system.service';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './support/home/home.component';
@@ -23,6 +24,7 @@ import { UserListComponent } from './user/user-list/user-list.component';
 import { UserDetailComponent } from './user/user-detail/user-detail.component';
 import { UserCreateComponent } from './user/user-create/user-create.component';
 import { UserEditComponent } from './user/user-edit/user-edit.component';
+import { UserLoginComponent } from './user/user-login/user-login.component';
 
 import { VendorListComponent } from './vendor/vendor-list/vendor-list.component';
 import { VendorDetailComponent } from './vendor/vendor-detail/vendor-detail.component';
@@ -38,12 +40,14 @@ import { PurchaseRequestListComponent } from './purchaserequest/purchaserequest-
 import { PurchaseRequestDetailComponent } from './purchaserequest/purchaserequest-detail/purchaserequest-detail.component';
 import { PurchaseRequestCreateComponent } from './purchaserequest/purchaserequest-create/purchaserequest-create.component';
 import { PurchaseRequestEditComponent } from './purchaserequest/purchaserequest-edit/purchaserequest-edit.component';
-//import { UserLoginComponent } from './user/user-login/user-login.component';
+import { PurchaseRequestReviewComponent } from './purchaserequest/purchaserequest-review/purchaserequest-review.component';
+import { PurchaseRequestLineItemsComponent } from './purchaserequest/purchaserequest-lineitems/purchaserequest-lineitems.component';
 
 import { PrliListComponent } from './prli/prli-list/prli-list.component';
 import { PrliDetailComponent } from './prli/prli-detail/prli-detail.component';
 import { PrliEditComponent } from './prli/prli-edit/prli-edit.component';
 import { PrliCreateComponent } from './prli/prli-create/prli-create.component';
+
 
 @NgModule({
   declarations: [
@@ -70,17 +74,19 @@ import { PrliCreateComponent } from './prli/prli-create/prli-create.component';
      PurchaseRequestDetailComponent,
      PurchaseRequestCreateComponent,
      PurchaseRequestEditComponent,
-     //UserLoginComponent,
+     UserLoginComponent,
      PrliListComponent,
      PrliDetailComponent,
      PrliEditComponent,
      PrliCreateComponent,
+     PurchaseRequestReviewComponent,
+     PurchaseRequestLineItemsComponent,
       ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
   providers: [
   UserService,
@@ -88,6 +94,7 @@ import { PrliCreateComponent } from './prli/prli-create/prli-create.component';
   ProductService,
   PurchaseRequestService,
   PRLIService,
+  SystemService,
     ],
   bootstrap: [
   AppComponent

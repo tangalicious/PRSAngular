@@ -20,7 +20,6 @@ constructor(
 	Unit: string,
 	Photopath: string,
 	Active: boolean,
-	//
 	)
 	{
 	this.ID = ID;

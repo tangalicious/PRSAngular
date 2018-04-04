@@ -9,7 +9,7 @@ import { Vendor } from '../../models/vendor';
   styleUrls: ['./vendor-detail.component.css']
 })
 export class VendorDetailComponent implements OnInit {
-pagetitle: string = 'Vendor Edit';
+pagetitle: string = 'Vendor Detail';
 vendor: Vendor;
 
   constructor(
@@ -18,8 +18,8 @@ vendor: Vendor;
     private router: Router
 	) { }
 
-change(): void {
-    this.VendorSvc.Change(this.vendor)
+remove(): void {
+   this.VendorSvc.Remove(this.vendor)
     .subscribe(res => {
       console.log(res);
       this.router.navigateByUrl("/vendors/list");
@@ -33,13 +33,14 @@ change(): void {
   		console.log("Vendor:", vendor);
   	});
   }
+
   ngOnInit() {
   	this.route.params
   	.subscribe(parms => 
   		{let id = parms["id"];
   			this.getVendorById(id);
-  }
-)};
+});
+}
 }
 
 

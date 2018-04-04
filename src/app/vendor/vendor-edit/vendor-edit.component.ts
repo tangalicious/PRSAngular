@@ -20,23 +20,23 @@ vendor: Vendor;
 	) { }
 
 change(): void {
-    this.VendorSvc.Change(this.vendor)
+  this.VendorSvc.Change(this.vendor)
     .subscribe(res => {
       console.log(res);
       this.router.navigateByUrl("/vendors/list");
     });
 }
  
-  getVendorById(id) {
-  	this.VendorSvc.Get(id)
+getVendorById(id) {
+	this.VendorSvc.Get(id)
   	.subscribe(vendor => {
   		this.vendor = vendor;
   		console.log("Vendor:", vendor);
   	});
   }
 
-  ngOnInit() {
-  	this.route.params
+ngOnInit() {
+	this.route.params
   	.subscribe(parms => 
   		{let id = parms["id"];
   			this.getVendorById(id);

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
-//import { SystemService } from './system.service';
+import { SystemService } from './system.service';
 
 import { User } from '../models/user';
 
@@ -10,13 +10,17 @@ const url = "http://localhost:51237/Users/";
 @Injectable()
 export class UserService {
 
-  constructor(private http: HttpClient) {}
+  constructor(
+  	private http: HttpClient,
+	private sys: SystemService
+  	) {}
 
-		/* Login(username: string, password: string): Observable<any> {
-    		let furl = this.System.url("Users", "Login", username, password);
-    		return this.http.get(furl) as Observable<any>;*/
-    // return this.http.get(url+"Login/"+username+"/"+password) as Observable<any>;
-    
+    	Login(username: string, password: string): Observable<any> {
+    	let furl = this.sys.url("Users", "Login", username, password);
+    		return this.http.get(furl) as Observable<any>;}
+
+     //return this.http.get(url+"Login/"+username+"/"+password) as Observable<any>;}
+
 		List(): Observable<User[]>{
 		  	return this.http.get(url+'List') as Observable<User[]>;
 		  }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { User } from '../../models/user';
+
 import { PurchaseRequest } from '../../models/PurchaseRequest';
 import { PurchaseRequestService } from '../../services/purchaserequest.service';
 import { PRLI } from '../../models/PRLI';
@@ -8,18 +8,17 @@ import { PRLIService } from '../../services/PRLI.service';
 
 
 @Component({
-  selector: 'app-purchaserequest-detail',
-  templateUrl: './purchaserequest-detail.component.html',
-  styleUrls: ['./purchaserequest-detail.component.css']
+  selector: 'app-purchaserequest-lineitems',
+  templateUrl: './purchaserequest-lineitems.component.html',
+  styleUrls: ['./purchaserequest-lineitems.component.css']
 })
-export class PurchaseRequestDetailComponent implements OnInit {
+export class PurchaseRequestLineItemsComponent implements OnInit {
 
 pagetitle: string = "Purchase Request List";
 pagetitle2: string = "Purchase Request Line Item List";
 purchaserequest: PurchaseRequest;
 
 isHidden: boolean = true;
-
   constructor(
   	private PurchaseReqSvc: PurchaseRequestService,
     private PRLISvc: PRLIService,
@@ -55,13 +54,14 @@ isHidden: boolean = true;
   		console.log("Purchaserequest:", purchaserequest);
   	});
   }
-
   ngOnInit() {
-  	this.route.params
+  		this.route.params
   	.subscribe(parms => 
   		{let id = parms["id"];
   			this.getPurchReqById(id);
-  }
+
+ }
+
 )};
 }
 

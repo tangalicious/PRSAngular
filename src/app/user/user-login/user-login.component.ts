@@ -19,7 +19,7 @@ export class UserLoginComponent implements OnInit, OnDestroy {
     private SysSvc: SystemService,
     private router: Router
   ) { }
-/*
+
   login(): void {
     this.SysSvc.setNotLogin();
     this.UserSvc.Login(this.user.UserName, this.user.Password)
@@ -35,7 +35,7 @@ export class UserLoginComponent implements OnInit, OnDestroy {
         }
       });
   }
-  */
+
   ngOnInit() {
     this.SysSvc.setIsLogin();
   }

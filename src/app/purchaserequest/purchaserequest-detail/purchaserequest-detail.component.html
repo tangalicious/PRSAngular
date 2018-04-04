@@ -1,21 +1,69 @@
 <div id="component">
-	<div id="pagetitle">
-		<span> {{ pagetitle }} </span>
-		</div>
-		<div id="content" *ngIf="purchaserequest">
-		<table class="table table-sm" >
-		<tr><td>ID</td><td>{{purchaserequest.ID}}</td></tr>
-		<tr><td>User Name</td><td>{{purchaserequest.User.UserName}}</td></tr>
-		<tr><td>Description</td><td>{{purchaserequest.Description}}</td></tr>
-		<tr><td>Justification</td><td>{{purchaserequest.Justification}}</td></tr>
-		<tr><td>DeliveryMode</td><td>{{purchaserequest.DeliveryMode}}</td></tr>
-		<tr><td>StatusID</td><td>{{purchaserequest.StatusID}}</td></tr>
-		<tr><td>Total</td><td>{{purchaserequest.Total}}</td></tr>
-		<tr><td>Active</td><td>{{purchaserequest.Active}}</td></tr>
-		<tr><td>ReasonForRejection</td><td>{{purchaserequest.ReasonForRejection}}</td></tr>
-		</table>
-		<a routerLink="/purchaserequests/edit/{{purchaserequest.ID}}" class="btn btn-warning">Edit</a> | 
-    <button (click)="verify()" class="btn btn-danger">Delete</button> |
-    <button [hidden]="isHidden" (click)="remove()" class="btn btn-danger">Verify Delete</button>
+  <div id="pagetitle">
+    <span>{{ pagetitle }}</span> | <a routerLink="/purchaserequests/create">Create New</a>
+  </div>
+  <div id="content">
+    <table class="table table-sm">
+      <thead>
+        <tr>
+        		<th>ID</th>
+      			<th>User</th>
+      			<th>Description</th>
+      			<th>Justification</th>
+      			<th>Status</th>
+      			<th>Total</th>
+      			<th>ReasonForRejection</th>
+      			<th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngIf="purchaserequest">
+          	<td>{{purchaserequest.ID}}</td>
+      			<td>{{purchaserequest.User.UserName}}</td>
+      			<td>{{purchaserequest.Description}}</td>
+      			<td>{{purchaserequest.Justification}}</td>
+      			<td>{{purchaserequest.Status}}</td>
+      			<td>{{purchaserequest.Total}}</td>
+      			<td>{{purchaserequest.ReasonForRejection}}</td>
+          <td>
+            <a routerLink="/purchaserequests/edit/{{purchaserequest.ID}}">Edit</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </div>
+<!-- 
+<div id="component">
+  <div id="pagetitle">
+    <span>{{ pagetitle2 }}</span> | <a routerLink="/prlis/create">Create New</a>
+  </div>
+  <div id="content">
+<table class="table table-sm">
+  <thead>
+    <tr>
+  		<th>ID</th>
+  		<th>Product</th>
+  		<th>Quantity</th>
+  		<th>Price</th>
+  		<th>Subtotal</th>
+  		<th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let PRLI of purchaserequest.PRLIs">
+    	<td>{{PRLI.ID}}</td>
+      <td>{{PRLI.Product.Name}}</td>
+			<td>{{PRLI.Quantity}}</td>
+			<td>{{PRLI.Price | currency}}</td>
+			<td>{{ (PRLI.Price * PRLI.Quantity) | currency}}</td>
+      <td>
+        <a routerLink="/prlis/detail/{{PRLI.ID}}">Detail</a> |
+        <a routerLink="/prlis/edit/{{PRLI.ID}}">Edit</a>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+  </div>
+</div> -->

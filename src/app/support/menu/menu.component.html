@@ -4,4 +4,7 @@
 		<app-menu-item [menuItem]="menu"></app-menu-item>
 		</li>
 	</ul>
+	<div>
+	<span *ngIf="loggedInUser">{{loggedInUser.FirstName}} {{loggedInUser.LastName}}</span>
+</div>
 </nav>

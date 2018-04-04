@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+  import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { PurchaseRequestService} from '../../services/purchaserequest.service';
@@ -24,17 +24,19 @@ purchaserequests: PurchaseRequest[];
      ) { }
 
 ngOnInit() {
-	this.PurchaseReqSvc.List()
-  	.subscribe(purchaserequests => {
-  		console.log(purchaserequests);
-      this.purchaserequests = purchaserequests;
-
   	this.PRLISvc.List()
   	.subscribe(prlis => {
   		console.log(prlis);
       this.prlis = prlis;
   	})
 
-  	})
-  }
+    this.PurchaseReqSvc.List()
+    .subscribe(purchaserequests => {
+      console.log(purchaserequests);
+      this.purchaserequests = purchaserequests;
+    })
+}
+
+
+  	
 }

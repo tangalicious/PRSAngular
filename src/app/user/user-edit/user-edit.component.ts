@@ -3,15 +3,14 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from '../../services/user.service';
 import { User } from '../../models/user';
 
-
 @Component({
   selector: 'app-user-edit',
   templateUrl: './user-edit.component.html',
   styleUrls: ['./user-edit.component.css']
 })
 export class UserEditComponent implements OnInit {
-pagetitle: string = 'User Edit';
 
+pagetitle: string = 'User Edit';
 user: User;
 
   constructor(

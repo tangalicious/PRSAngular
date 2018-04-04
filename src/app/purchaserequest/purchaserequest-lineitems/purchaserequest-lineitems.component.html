@@ -1,6 +1,6 @@
 <div id="component">
   <div id="pagetitle">
-    <span><h1>{{ pagetitle }}</h1></span> | <a routerLink="/purchaserequests/create">Create New</a>
+    <span>{{ pagetitle }}</span> | <a routerLink="/purchaserequests/create">Create New</a>
   </div>
   <div id="content">
     <table class="table table-sm">
@@ -13,11 +13,11 @@
       			<th>Status</th>
       			<th>Total</th>
       			<th>ReasonForRejection</th>
-      			<th>Action</th>
+      			<th>Actions</th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let purchaserequest of purchaserequests">
+        <tr *ngIf="purchaserequest">
           	<td>{{purchaserequest.ID}}</td>
       			<td>{{purchaserequest.User.UserName}}</td>
       			<td>{{purchaserequest.Description}}</td>
@@ -26,7 +26,6 @@
       			<td>{{purchaserequest.Total}}</td>
       			<td>{{purchaserequest.ReasonForRejection}}</td>
           <td>
-            <a routerLink="/purchaserequests/detail/{{purchaserequest.ID}}">Detail</a> |
             <a routerLink="/purchaserequests/edit/{{purchaserequest.ID}}">Edit</a>
           </td>
         </tr>
@@ -48,19 +47,19 @@
   		<th>Quantity</th>
   		<th>Price</th>
   		<th>Subtotal</th>
-  		<th>Action</th>
+  		<th>Actions</th>
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let prli of prlis">
-    	<td>{{prli.ID}}</td>
-      <td>{{prli.Product.Name}}</td>
-			<td>{{prli.Quantity}}</td>
-			<td>{{prli.Price | currency}}</td>
-			<td>{{ (prli.Price * prli.Quantity) | currency}}</td>
+    <tr *ngFor="let PRLI of purchaserequest.PRLIs">
+    	<td>{{PRLI.ID}}</td>
+      <td>{{PRLI.Product.Name}}</td>
+			<td>{{PRLI.Quantity}}</td>
+			<td>{{PRLI.Price | currency}}</td>
+			<td>{{ (PRLI.Price * PRLI.Quantity) | currency}}</td>
       <td>
-        <a routerLink="/prlis/detail/{{prli.ID}}">Detail</a> |
-        <a routerLink="/prlis/edit/{{prli.ID}}">Edit</a>
+        <a routerLink="/prlis/detail/{{PRLI.ID}}">Detail</a> |
+        <a routerLink="/prlis/edit/{{PRLI.ID}}">Edit</a>
       </td>
     </tr>
   </tbody>

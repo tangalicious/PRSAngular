@@ -5,6 +5,7 @@ import { UserListComponent } from './user/user-list/user-list.component'
 import { UserDetailComponent } from './user/user-detail/user-detail.component';
 import { UserCreateComponent } from './user/user-create/user-create.component';
 import { UserEditComponent } from './user/user-edit/user-edit.component';
+import { UserLoginComponent } from './user/user-login/user-login.component';
 
 import { MenuComponent} from './support/menu/menu.component';
 import { Menu} from './support/menu/menu';
@@ -29,6 +30,8 @@ import { PurchaseRequestListComponent } from './purchaserequest/purchaserequest-
 import { PurchaseRequestDetailComponent } from './purchaserequest/purchaserequest-detail/purchaserequest-detail.component';
 import { PurchaseRequestCreateComponent } from './purchaserequest/purchaserequest-create/purchaserequest-create.component';
 import { PurchaseRequestEditComponent } from './purchaserequest/purchaserequest-edit/purchaserequest-edit.component';
+import { PurchaseRequestLineItemsComponent } from './purchaserequest/purchaserequest-lineitems/purchaserequest-lineitems.component';
+import { PurchaseRequestReviewComponent } from './purchaserequest/purchaserequest-review/purchaserequest-review.component';
 
 import { PrliListComponent } from './prli/prli-list/prli-list.component';
 import { PrliDetailComponent } from './prli/prli-detail/prli-detail.component';
@@ -41,6 +44,7 @@ const routes: Routes = [
 { path: "users/edit/:id", component: UserEditComponent},
 { path: "users/list", component: UserListComponent}, 
 { path: "users/create", component: UserCreateComponent},
+{ path: "users/login", component: UserLoginComponent },
 
 { path: "vendors/detail/:id", component: VendorDetailComponent},
 { path: "vendors/edit/:id", component: VendorEditComponent},
@@ -55,6 +59,8 @@ const routes: Routes = [
 { path: "purchaserequests/detail/:id", component: PurchaseRequestDetailComponent},
 { path: "purchaserequests/edit/:id", component: PurchaseRequestEditComponent},
 { path: "purchaserequests/list", component: PurchaseRequestListComponent},
+{ path: "purchaserequests/lineitems/:id", component: PurchaseRequestLineItemsComponent},
+{ path: "purchaserequests/review", component: PurchaseRequestReviewComponent},
 { path: "purchaserequests/create", component: PurchaseRequestCreateComponent},
 
 { path: "prlis/detail/:id", component: PrliDetailComponent},
