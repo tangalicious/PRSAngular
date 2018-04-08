@@ -13,6 +13,7 @@ import { ProductService } from '../../services/product.service';
   templateUrl: './prli-detail.component.html',
   styleUrls: ['./prli-detail.component.css']
 })
+
 export class PrliDetailComponent implements OnInit {
 prli : PRLI;
 pagetitle: string = 'Purchase Request Line Item Change';
@@ -53,5 +54,6 @@ ngOnInit() {
   		{let id = parms["id"];
   			this.getPRLIById(id);
   });
+}
 }
 
