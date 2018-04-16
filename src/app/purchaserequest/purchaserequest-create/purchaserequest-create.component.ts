@@ -41,7 +41,5 @@ ngOnInit() {
   		this.users = users;
   		console.log("User:", this.users);
   	});
-  
-
 }
 }

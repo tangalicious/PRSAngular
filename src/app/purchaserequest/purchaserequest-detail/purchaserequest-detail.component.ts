@@ -28,13 +28,16 @@ isHidden: boolean = true;
     ) { }
 
   review (): void {
-    this.purchaserequest.Status = (this.purchaserequest.Total <= 50)? "APPROVED" : "REVIEW";
-    this.PurchaseReqSvc.Change(this.purchaserequest)
-    .subscribe(res => {
-      console.log(res);
-    this.router.navigateByUrl("/purchaserequests/list")
-  });
-  }
+     if (this.purchaserequest.Total <= 50) {
+        this.purchaserequest.Status = 'APPROVED';
+      } else {
+        this.purchaserequest.Status = 'REVIEW';
+      }
+      this.PurchaseReqSvc.Change(this.purchaserequest).subscribe( pr => {
+        console.log(pr);
+        this.router.navigateByUrl('/purchaserequests/list');
+      });
+    }
 
   verify():void {
     this.isHidden = false;

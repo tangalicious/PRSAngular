@@ -1,6 +1,6 @@
 <div id="component">
   <div id="pagetitle">
-    <span>{{ pagetitle }}</span> | <a routerLink="/purchaserequests/create">Create New</a>
+    <span>{{ pagetitle }}</span> | <a routerLink="/purchaserequests/list">Go back to Request List</a>
   </div>
   <div id="content">
     <table class="table table-sm">
@@ -58,8 +58,8 @@
 			<td>{{PRLI.Price | currency}}</td>
 			<td>{{ (PRLI.Price * PRLI.Quantity) | currency}}</td>
       <td>
-        <a routerLink="/prlis/detail/{{PRLI.ID}}">Detail</a> |
-        <a routerLink="/prlis/edit/{{PRLI.ID}}">Edit</a>
+       <a routerLink="/prlis/detail/{{this.purchaserequest.ID}}/{{prli.ID}}">Detail</a> |
+            <a routerLink="/prlis/edit/{{this.purchaserequest.ID}}/{{prli.ID}}">Edit</a>
       </td>
     </tr>
   </tbody>
